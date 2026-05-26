@@ -47,6 +47,32 @@ const projects: Project[] = [
 
   // FRONTEND
   {
+    title: "CoinTrack",
+    description:
+      "A responsive cryptocurrency tracking web application that displays real-time prices and market data for popular cryptocurrencies using the CoinGecko API.",
+    category: "frontend",
+    tech: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "REST API",
+      "Firebase Hosting",
+      "GitHub",
+    ],
+    highlights: [
+      "Integrated CoinGecko API for real-time cryptocurrency market data",
+      "Built responsive grid-based UI optimized for multiple screen sizes",
+      "Implemented automatic 30-second data refresh system",
+      "Handled API failures gracefully with structured error states",
+      "Deployed production-ready application using Firebase Hosting",
+    ],
+    github: "https://github.com/Izudavo/CoinTrackSetup",
+    live: "https://cointrack-91a8e.web.app",
+    image: "/projects/cointrack-img.png",
+    accent: "#EAB308",
+  },
+
+  {
     title: "GHAN Platform",
     description:
       "Led the end-to-end redesign and development of the GHAN platform, transforming product requirements and Figma concepts into a scalable production-ready web application focused on performance, maintainability, and operational efficiency.",
@@ -75,7 +101,7 @@ const projects: Project[] = [
   },
 
   {
-    title: "Giftcard Trading Platform",
+    title: "CirvaX Web Platform",
     description:
       "Designed and developed a fintech landing platform for streamlined gift card trading with WhatsApp-assisted transaction workflows, trust-focused onboarding, and conversion-driven user experience.",
     category: "frontend",
@@ -95,7 +121,7 @@ const projects: Project[] = [
     ],
     live: "https://cirvax.com",
     image: "/projects/cirva-gift-landing.png",
-    accent: "#10B981",
+    accent: "#3B82F6",
   },
 
   {
@@ -152,17 +178,81 @@ const projects: Project[] = [
     accent: "#10B981",
   },
 
-  // CLOUD
+  // Cloud
   {
-    title: "Cloud CI/CD Pipeline", // will update this
+    title: "Weather Dashboard Cloud Pipeline",
     description:
-      "Automated deployment system with Docker, GitHub Actions, and scalable AWS-like infrastructure.",
+      "Developed a cloud-based weather data pipeline that fetches near real-time weather information from Nigerian cities and stores structured data in Amazon S3 for future analysis.",
     category: "cloud",
-    tech: ["Docker", "CI/CD", "Nginx"],
-    github: "https://github.com",
-    image: "/projects/cloud.png",
-    accent: "#22C55E",
+    tech: [
+      "AWS S3",
+      "Python",
+      "Boto3",
+      "OpenWeather API",
+      "AWS CLI",
+      "dotenv",
+    ],
+    highlights: [
+      "Fetched live weather data using the OpenWeather API",
+      "Stored structured datasets securely in Amazon S3",
+      "Managed AWS credentials and secrets using environment variables",
+      "Built cloud automation workflows with Python and Boto3",
+      "Configured AWS infrastructure",
+    ],
+    github: "https://github.com/Izudavo/Day1_CozyCloud_DevopsChallenge",
+    image: "/projects/weatherapp_demo.png",
+    accent: "#0EA5E9",
   },
+
+{
+  title: "NBA Data Lake",
+  description:
+    "Designed a serverless AWS data lake pipeline for storing, transforming, and querying NBA standings data using S3, AWS Glue, and Amazon Athena.",
+  category: "cloud",
+  tech: [
+    "AWS S3",
+    "AWS Glue",
+    "Amazon Athena",
+    "Python",
+    "SQL",
+    "SportsDataIO",
+  ],
+  highlights: [
+    "Built a cloud-native NBA data lake architecture on AWS",
+    "Extracted and transformed NBA standings data using AWS Glue",
+    "Queried structured datasets directly with Amazon Athena and SQL",
+    "Stored season statistics in Amazon S3 for long-term access",
+    "Implemented secure IAM role permissions across AWS services",
+  ],
+  github: "https://github.com/Izudavo/DAY3-COZYCLOUD-DEVOPS--NBADATALAKE",
+  image: "/projects/nba_sns.jpeg",
+  accent: "#8B5CF6",
+},
+
+{
+  title: "Football Matchday Notifications",
+  description:
+    "Built a cloud-based football fixtures notification system that delivers scheduled match updates from major leagues to subscribed users using AWS serverless infrastructure.",
+  category: "cloud",
+  tech: [
+    "AWS Lambda",
+    "Amazon SNS",
+    "EventBridge",
+    "Python",
+    "REST API",
+    "IAM",
+  ],
+  highlights: [
+    "Integrated football-data.org API for live football fixtures",
+    "Automated hourly notifications using Amazon EventBridge",
+    "Delivered email alerts through Amazon SNS",
+    "Implemented secure IAM policies using least privilege principles",
+    "Built serverless workflow using AWS Lambda and Python",
+  ],
+  github: "https://github.com/Izudavo/Day2_CozyCloud_DevopsChallenge",
+  image: "/projects/football_sns.png",
+  accent: "#22C55E",
+},
 ];
 
 const tabs = [

@@ -5,6 +5,7 @@ import ExperienceSection from './components/Home/work-section';
 import SelectedProjects from './components/Home/projects-section';
 import BlogPreviewSection from './components/Home/blog-section';
 import CertificationsSection from './components/Home/certifications-section';
+import ServicesSection from './components/Home/services-section';
 
 export default function Homepage() {
   return (
@@ -16,6 +17,7 @@ export default function Homepage() {
 
       <div id="about">
         <AboutSection />
+        <ServicesSection/>
         <CertificationsSection/>
       </div>
 

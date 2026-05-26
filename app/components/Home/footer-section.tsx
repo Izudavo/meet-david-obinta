@@ -44,30 +44,36 @@ const FooterSection = () => {
         {/* EMAIL */}
         <a
           href="mailto:izuchukwudavido@gmail.com"
-          className="inline-block mt-2 text-lg md:text-xl font-semibold text-foreground hover:opacity-70 transition"
+          className="inline-block mt-2 text-base md:text-lg font-semibold text-foreground hover:opacity-70 transition"
         >
-          izuchukwudavido@gmail.com
+          Let’s talk - izuchukwudavido@gmail.com
         </a>
       </motion.div>
 
       {/* SOCIAL LINKS */}
-      <div className="flex flex-wrap justify-center gap-6">
-        {socials.map((social) => {
-          const Icon = social.icon;
+      <div className="space-y-4">
+        <p className="text-base md:text-lg italic text-muted-foreground/80 tracking-wide text-center">
+          Connect with me across these platforms
+        </p>
 
-          return (
-            <a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center gap-2 hover:opacity-80 transition ${social.color}`}
-            >
-              <Icon className="w-5 h-5" />
-              {social.label}
-            </a>
-          );
-        })}
+        <div className="flex flex-wrap justify-center gap-6">
+          {socials.map((social) => {
+            const Icon = social.icon;
+
+            return (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center gap-2 hover:opacity-80 transition ${social.color}`}
+              >
+                <Icon className="w-5 h-5" />
+                {social.label}
+              </a>
+            );
+          })}
+        </div>
       </div>
 
       {/* SKILLS */}

@@ -61,7 +61,7 @@ const CertificationsSection = () => {
         className="space-y-3"
       >
         <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight text-foreground">
-          Certifications
+         My Certifications
         </h2>
 
         <p className="text-muted-foreground max-w-2xl leading-relaxed">

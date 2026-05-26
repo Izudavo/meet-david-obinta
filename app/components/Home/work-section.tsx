@@ -23,7 +23,7 @@ const experiences = [
     logo: "/ghan.png",
     type: "Contract",
     period: "Feb 2026 - Apr 2026",
-    location: "Lagos State, Nigeria · Remote",
+    location: "Remote",
     color: "#A78BFA",
     description:
       "Led end-to-end redesign and development of the GHAN platform, transforming Figma designs into a production-ready web application. Built a scalable and secure full-stack system focused on performance, reliability, and maintainability.",

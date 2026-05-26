@@ -26,7 +26,7 @@ const AboutSection = () => {
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
           I’m a fullstack engineer with a strong focus on building scalable
           systems across web, mobile, and cloud infrastructure. I work across
-          the entire product lifecycle — from system design and backend APIs to
+          the entire product lifecycle from system design and backend APIs to
           frontend interfaces and deployment automation.
         </p>
 
@@ -39,7 +39,7 @@ const AboutSection = () => {
 
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
           My strength lies in connecting product thinking with engineering
-          execution — designing systems that are not just functional, but
+          execution, designing systems that are not just functional, but
           reliable, scalable, and ready for real users.
         </p>
       </motion.div>

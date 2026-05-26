@@ -6,7 +6,7 @@ const WHATSAPP_LINK = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.
   /\D/g,
   ""
 )}?text=${encodeURIComponent(
-  "Hello David Obinta, I want to discuss about a job."
+  "Hi David, I’d like to discuss a project with you."
 )}`;
 
 export const socials = [

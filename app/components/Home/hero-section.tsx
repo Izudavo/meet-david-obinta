@@ -8,7 +8,9 @@ import { socials } from "../ui/socials";
 
 const roles = ["FULLSTACK", "DEVOPS", "CLOUD"];
 
-{/* SOCIAL LINKS */}
+{
+  /* SOCIAL LINKS */
+}
 <div className="flex flex-wrap justify-center gap-6">
   {socials.map((social) => {
     const Icon = social.icon;
@@ -62,7 +64,7 @@ const AnimatedTitle = () => {
   );
 };
 
-// HERO 
+// HERO
 const HeroSection = () => {
   const ref = useRef(null);
 
@@ -144,33 +146,33 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.6 }}
-          className="flex flex-wrap justify-center lg:justify-start items-center gap-6 pt-2"
+          className="space-y-4 pt-2"
         >
-          {socials.map((social) => {
-            const Icon = social.icon;
+          <p className="text-base md:text-lg italic text-muted-foreground/80 tracking-wide">
+            Connect with me across these platforms
+          </p>
 
-            return (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex items-center gap-2 hover:opacity-80 transition ${social.color}`}
-              >
-                <Icon className="w-5 h-5" />
+          <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6">
+            {socials.map((social) => {
+              const Icon = social.icon;
 
-                <span
-                  className={`text-sm uppercase tracking-wider ${
-                    social.label === "GitHub"
-                      ? "text-foreground"
-                      : "text-foreground"
-                  }`}
+              return (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-2 hover:opacity-80 transition ${social.color}`}
                 >
-                  {social.label}
-                </span>
-              </a>
-            );
-          })}
+                  <Icon className="w-5 h-5" />
+
+                  <span className="text-sm uppercase tracking-wider text-foreground">
+                    {social.label}
+                  </span>
+                </a>
+              );
+            })}
+          </div>
         </motion.div>
       </motion.div>
     </section>

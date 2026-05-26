@@ -19,6 +19,7 @@ import {
   SiPostgresql,
   SiRender,
   SiSentry,
+  SiFigma,
 } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
 import { motion, useInView } from "framer-motion";
@@ -63,16 +64,16 @@ const StackSection = () => {
           title="Frontend"
           inView={inView}
           items={[
+            { icon: SiFigma, name: "Figma", color: "#F24E1E" },
             { icon: SiReact, name: "React", color: "#61DAFB" },
             {
               icon: SiNextdotjs,
               name: "Next.js",
               color: isDark ? "#FFFFFF" : "#000000",
             },
-            { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
-            { icon: SiJavascript, name: "JavaScript", color: "#F7DF1E" },
-            { icon: SiTailwindcss, name: "TailwindCSS", color: "#38BDF8" },
             { icon: SiFlutter, name: "Flutter", color: "#02569B" },
+            { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
+            { icon: SiTailwindcss, name: "TailwindCSS", color: "#38BDF8" },
           ]}
         />
 

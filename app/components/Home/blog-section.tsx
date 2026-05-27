@@ -14,7 +14,7 @@ const posts = [
   {
     title: "Blockchain Systems",
     image: "/blog/coin_img.svg",
-    excerpt: "Integrating smart contracts with scalable backends.",
+    excerpt: "Integrating smart contracts for a web3 platform.",
     slug: "blockchain-system",
     accent: "from-purple-500/20 to-indigo-500/10",
   },

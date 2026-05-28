@@ -17,7 +17,8 @@ const AboutSection = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7 }}
-        className="lg:col-span-6 space-y-6"
+        //className="lg:col-span-6 space-y-6"
+        className="lg:col-span-12 space-y-6" // to expand until video frame is back
       >
         <h2 className="text-3xl md:text-5xl font-black text-foreground leading-tight uppercase tracking-tight">
           About Me
@@ -45,6 +46,7 @@ const AboutSection = () => {
       </motion.div>
 
       {/* VIDEO FRAME */}
+      {/*
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -52,7 +54,8 @@ const AboutSection = () => {
         className="lg:col-span-6"
       >
         <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-border bg-muted/30 shadow-xl">
-          {/* Placeholder overlay */}
+          
+        // Placeholder overlay  
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center space-y-2">
               <div className="text-foreground font-semibold">
@@ -64,21 +67,22 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* This will later become the iframe */}
-          {/* Example:
+          // This will later become the iframe 
+          
           <iframe
             src="https://www.loom.com/embed/xxxxx"
             className="w-full h-full"
             allowFullScreen
           />
-          */}
+          
         </div>
 
-        {/* subtle caption */}
+       // subtle caption 
         <p className="text-xs text-muted-foreground mt-3 text-center lg:text-left">
           A short walkthrough of my work, systems, and engineering approach.
         </p>
       </motion.div>
+      */}
     </section>
   );
 };

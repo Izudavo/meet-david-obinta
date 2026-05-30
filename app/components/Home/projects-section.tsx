@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence, useInView } from "framer-motion";
-import { useState, useRef, useMemo } from "react";
+import { useState, useRef, useMemo, useEffect } from "react";
 import { ExternalLink, X } from "lucide-react";
 import { FaGithub, FaFigma } from "react-icons/fa";
 
@@ -19,8 +19,7 @@ type Project = {
 };
 
 const projects: Project[] = [
-
-  // UI/UX 
+  // UI/UX
   {
     title: "AT Budget App UI",
     description:
@@ -172,7 +171,9 @@ const projects: Project[] = [
     description:
       "Backend API for Cirva-X card trade operations, both handling user and admin actions, deployed to AWS infra, using Sentry for monitoring",
     category: "backend",
-    tech: [" TypeScript, Node.js, Express, Prisma, MySQL, Sentry, Resend, and AWS"],
+    tech: [
+      " TypeScript, Node.js, Express, Prisma, MySQL, Sentry, Resend, and AWS",
+    ],
     github: "https://github.com/devcirvax/node-backend",
     image: "/projects/giftcard-ui.png",
     accent: "#10B981",
@@ -184,14 +185,7 @@ const projects: Project[] = [
     description:
       "Developed a cloud-based weather data pipeline that fetches near real-time weather information from Nigerian cities and stores structured data in Amazon S3 for future analysis.",
     category: "cloud",
-    tech: [
-      "AWS S3",
-      "Python",
-      "Boto3",
-      "OpenWeather API",
-      "AWS CLI",
-      "dotenv",
-    ],
+    tech: ["AWS S3", "Python", "Boto3", "OpenWeather API", "AWS CLI", "dotenv"],
     highlights: [
       "Fetched live weather data using the OpenWeather API",
       "Stored structured datasets securely in Amazon S3",
@@ -204,55 +198,55 @@ const projects: Project[] = [
     accent: "#0EA5E9",
   },
 
-{
-  title: "NBA Data Lake",
-  description:
-    "Designed a serverless AWS data lake pipeline for storing, transforming, and querying NBA standings data using S3, AWS Glue, and Amazon Athena.",
-  category: "cloud",
-  tech: [
-    "AWS S3",
-    "AWS Glue",
-    "Amazon Athena",
-    "Python",
-    "SQL",
-    "SportsDataIO",
-  ],
-  highlights: [
-    "Built a cloud-native NBA data lake architecture on AWS",
-    "Extracted and transformed NBA standings data using AWS Glue",
-    "Queried structured datasets directly with Amazon Athena and SQL",
-    "Stored season statistics in Amazon S3 for long-term access",
-    "Implemented secure IAM role permissions across AWS services",
-  ],
-  github: "https://github.com/Izudavo/DAY3-COZYCLOUD-DEVOPS--NBADATALAKE",
-  image: "/projects/nba_sns.jpeg",
-  accent: "#8B5CF6",
-},
+  {
+    title: "NBA Data Lake",
+    description:
+      "Designed a serverless AWS data lake pipeline for storing, transforming, and querying NBA standings data using S3, AWS Glue, and Amazon Athena.",
+    category: "cloud",
+    tech: [
+      "AWS S3",
+      "AWS Glue",
+      "Amazon Athena",
+      "Python",
+      "SQL",
+      "SportsDataIO",
+    ],
+    highlights: [
+      "Built a cloud-native NBA data lake architecture on AWS",
+      "Extracted and transformed NBA standings data using AWS Glue",
+      "Queried structured datasets directly with Amazon Athena and SQL",
+      "Stored season statistics in Amazon S3 for long-term access",
+      "Implemented secure IAM role permissions across AWS services",
+    ],
+    github: "https://github.com/Izudavo/DAY3-COZYCLOUD-DEVOPS--NBADATALAKE",
+    image: "/projects/nba_sns.jpeg",
+    accent: "#8B5CF6",
+  },
 
-{
-  title: "Football Matchday Notifications",
-  description:
-    "Built a cloud-based football fixtures notification system that delivers scheduled match updates from major leagues to subscribed users using AWS serverless infrastructure.",
-  category: "cloud",
-  tech: [
-    "AWS Lambda",
-    "Amazon SNS",
-    "EventBridge",
-    "Python",
-    "REST API",
-    "IAM",
-  ],
-  highlights: [
-    "Integrated football-data.org API for live football fixtures",
-    "Automated hourly notifications using Amazon EventBridge",
-    "Delivered email alerts through Amazon SNS",
-    "Implemented secure IAM policies using least privilege principles",
-    "Built serverless workflow using AWS Lambda and Python",
-  ],
-  github: "https://github.com/Izudavo/Day2_CozyCloud_DevopsChallenge",
-  image: "/projects/football_sns.png",
-  accent: "#22C55E",
-},
+  {
+    title: "Football Matchday Notifications",
+    description:
+      "Built a cloud-based football fixtures notification system that delivers scheduled match updates from major leagues to subscribed users using AWS serverless infrastructure.",
+    category: "cloud",
+    tech: [
+      "AWS Lambda",
+      "Amazon SNS",
+      "EventBridge",
+      "Python",
+      "REST API",
+      "IAM",
+    ],
+    highlights: [
+      "Integrated football-data.org API for live football fixtures",
+      "Automated hourly notifications using Amazon EventBridge",
+      "Delivered email alerts through Amazon SNS",
+      "Implemented secure IAM policies using least privilege principles",
+      "Built serverless workflow using AWS Lambda and Python",
+    ],
+    github: "https://github.com/Izudavo/Day2_CozyCloud_DevopsChallenge",
+    image: "/projects/football_sns.png",
+    accent: "#22C55E",
+  },
 ];
 
 const tabs = [
@@ -267,8 +261,7 @@ export default function SelectedProjects() {
 
   const [selected, setSelected] = useState<Project | null>(null);
 
-  // cache loaded figma embeds
-  const loadedFigma = useRef<Record<string, boolean>>({});
+  const [figmaLoaded, setFigmaLoaded] = useState(false);
 
   const ref = useRef(null);
 
@@ -282,9 +275,28 @@ export default function SelectedProjects() {
     [active]
   );
 
+  // reset loader whenever modal changes
+  useEffect(() => {
+    setFigmaLoaded(false);
+  }, [selected]);
+
+  const getFigmaEmbedUrl = (url: string) => {
+    if (!url) return "";
+
+    const match = url.match(/figma\.com\/proto\/([^/?]+)/);
+
+    if (match) {
+      const fileKey = match[1];
+      return `https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/proto/${fileKey}`;
+    }
+
+    return `https://www.figma.com/embed?embed_host=share&url=${encodeURIComponent(
+      url
+    )}`;
+  };
+
   return (
     <section ref={ref} className="max-w-6xl mx-auto px-4 py-28 space-y-10">
-
       {/* HEADER */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -523,29 +535,22 @@ export default function SelectedProjects() {
                   </div>
                 </div>
 
-                {/* figma */}
+                {/* FIGMA */}
                 {selected.figma && (
-                  <div className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-950">
-                    {!loadedFigma.current[selected.title] && (
-                      <div className="h-[320px] md:h-[380px] flex items-center justify-center">
-                        <div className="space-y-3 text-center">
-                          <div className="w-8 h-8 border-2 border-zinc-300 border-t-black dark:border-zinc-700 dark:border-t-white rounded-full animate-spin mx-auto" />
-                          <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                            Loading prototype...
-                          </p>
-                        </div>
+                  <div className="rounded-xl overflow-hidden border">
+                    {!figmaLoaded && (
+                      <div className="h-[360px] flex items-center justify-center">
+                        <div className="animate-spin h-8 w-8 border-2 border-t-black dark:border-t-white rounded-full" />
                       </div>
                     )}
 
                     <iframe
-                      src={`https://www.figma.com/embed?embed_host=share&url=${selected.figma}`}
-                      className={`w-full h-[320px] md:h-[380px] ${
-                        loadedFigma.current[selected.title] ? "block" : "hidden"
+                      src={getFigmaEmbedUrl(selected.figma)}
+                      className={`w-full h-[360px] ${
+                        figmaLoaded ? "block" : "hidden"
                       }`}
                       allowFullScreen
-                      onLoad={() => {
-                        loadedFigma.current[selected.title] = true;
-                      }}
+                      onLoad={() => setFigmaLoaded(true)}
                     />
                   </div>
                 )}

@@ -20,13 +20,13 @@ const shootingStars = [
 ];
 
 export default function SpaceBackground() {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
-  const isDark = theme === "dark";
+  const isDark = resolvedTheme === "dark";
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">

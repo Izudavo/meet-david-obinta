@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -23,7 +23,7 @@ const Navbar = () => {
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
-  const isDark = theme === "dark";
+  const isDark = resolvedTheme === "dark";
   const isHome = pathname === "/";
 
   const iconClass = (active: boolean) =>
@@ -93,7 +93,7 @@ const Navbar = () => {
 
       {/* THEME TOGGLE */}
       <button
-        onClick={() => setTheme(isDark ? "light" : "dark")}
+        onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
         className="flex items-center justify-center"
         aria-label="Toggle Theme"
       >

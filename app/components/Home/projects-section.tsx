@@ -100,6 +100,31 @@ const projects: Project[] = [
   },
 
   {
+    title: "Sovereign Nest Estate Limited",
+    description:
+      "Designed and developed a modern real estate platform showcasing premium residential and commercial properties across Nigeria, with a focus on trust, luxury presentation, and lead generation.",
+    category: "frontend",
+    tech: [
+      "Vite",
+      "TypeScript",
+      "Tailwind CSS",
+      "Real Estate UI",
+      "Responsive Design",
+    ],
+    highlights: [
+      "Built a premium real estate website for showcasing luxury properties across Lagos and Abuja",
+      "Developed responsive property listing experiences optimized for desktop and mobile users",
+      "Created conversion-focused inquiry and contact flows for prospective property buyers",
+      "Designed reusable components for property cards, listings, testimonials, and service sections",
+      "Implemented trust-building elements including verified listings, client testimonials, and company credentials",
+      "Structured content to highlight investment opportunities, property details, and advisory services",
+    ],
+    live: "https://sovereignnestltd.com",
+    image: "/projects/sovereign-nest.png",
+    accent: "#8A2BE2",
+  },
+
+  {
     title: "CirvaX Web Platform",
     description:
       "Designed and developed a fintech landing platform for streamlined gift card trading with WhatsApp-assisted transaction workflows, trust-focused onboarding, and conversion-driven user experience.",

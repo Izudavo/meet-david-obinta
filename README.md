@@ -5,4 +5,4 @@
 - And stay close to see new updates as they drop in
 
 
-## A `Next.js` web-app with `typescript`, and `tailwindcss`
+## A `Next.js` web-app using `typescript`, and `tailwindcss`

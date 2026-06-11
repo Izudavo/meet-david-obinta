@@ -136,7 +136,7 @@ const HeroSection = () => {
           transition={{ delay: 0.4 }}
           className="grid grid-cols-3 gap-x-2 md:gap-x-4"
         >
-          <Stat item="+3" label="Years Experience" />
+          <Stat item="+5" label="Years Experience" />
           <Stat item="+20" label="Projects" />
           <Stat item="+4" label="Certifications" />
         </motion.div>

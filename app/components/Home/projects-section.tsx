@@ -14,7 +14,12 @@ type Project = {
   github?: string;
   live?: string;
   figma?: string;
-  image: string;
+  image: string; // cover image
+  gallery?: string[]; // additional screenshots
+  metrics?: {
+    label: string;
+    value: string;
+  }[];
   accent: string;
 };
 
@@ -45,6 +50,130 @@ const projects: Project[] = [
   },
 
   // FRONTEND
+  {
+    title: "ArticFlow - A Modern HVAC Service Website",
+
+    description:
+      "Designed and developed a responsive HVAC company website focused on lead generation, emergency service bookings, local SEO visibility, and customer acquisition. Built conversion-focused service pages, location landing pages, and mobile-first experiences to help local contractors increase qualified service inquiries.",
+
+    category: "frontend",
+
+    tech: [
+      "Vite",
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "SEO",
+      "Responsive Design",
+    ],
+
+    highlights: [
+      "Built conversion-focused HVAC service website optimized for local lead generation",
+      "Developed dedicated service pages for installation, repair, maintenance, and emergency support",
+      "Created location-specific landing pages targeting local search traffic",
+      "Implemented mobile-first responsive layouts across all devices",
+      "Optimized page structure, metadata, and content for SEO performance",
+      "Designed high-converting contact and service request workflows",
+      "Integrated trust-building sections including reviews, certifications, and service guarantees",
+    ],
+
+    live: undefined,
+
+    image: "/projects/hvac/home.png",
+
+    gallery: [
+      "/projects/hvac/services.png",
+      "/projects/hvac/emergency-service.png",
+      "/projects/hvac/blog.png",
+      "/projects/hvac/contact.png",
+    ],
+
+    accent: "#0EA5E9",
+  },
+
+  {
+    title: "RapidFlow - A Lead-Generation Plumbing Website",
+
+    description:
+      "Designed and developed a modern plumbing business website focused on customer acquisition, emergency service requests, and local search visibility. Built responsive service pages, trust-focused conversion funnels, and optimized user journeys to drive service bookings and inquiries.",
+
+    category: "frontend",
+
+    tech: [
+      "Vite",
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "Local SEO",
+      "Responsive Design",
+    ],
+
+    highlights: [
+      "Developed responsive plumbing company website optimized for lead generation",
+      "Built dedicated pages for residential and commercial plumbing services",
+      "Implemented emergency service request and contact workflows",
+      "Created local SEO landing pages targeting service-area keywords",
+      "Designed conversion-focused layouts with strong call-to-action placement",
+      "Integrated testimonials, guarantees, and trust-building elements",
+      "Optimized performance, accessibility, and mobile experience",
+    ],
+
+    live: undefined,
+
+    image: "/projects/plumbing/home.png",
+
+    gallery: [
+      "/projects/plumbing/services.png",
+      "/projects/plumbing/emergency.png",
+      "/projects/plumbing/location.png",
+      "/projects/plumbing/contact.png",
+    ],
+
+    accent: "#8B5CF6",
+  },
+
+  {
+    title: "Shopora -  A Multi-Vendor E-Commerce Marketplace",
+
+    description:
+      "Designed and developed a scalable e-commerce marketplace platform enabling vendors to manage products while providing customers with streamlined product discovery, shopping cart management, and checkout experiences across multiple categories.",
+
+    category: "frontend",
+
+    tech: [
+      "Vite",
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "Marketplace UI",
+      "E-Commerce",
+    ],
+
+    highlights: [
+      "Built modern marketplace experience for buyers and sellers",
+      "Developed product discovery workflows with category filtering and search",
+      "Implemented shopping cart and checkout user journeys",
+      "Created vendor-facing product management interfaces",
+      "Designed reusable component architecture for marketplace scalability",
+      "Optimized responsive experiences for desktop, tablet, and mobile users",
+      "Focused on conversion-oriented product listing and browsing experiences",
+    ],
+
+    live: undefined,
+
+    image: "/projects/marketplace/home.png",
+
+    gallery: [
+      "/projects/marketplace/products.png",
+      "/projects/marketplace/product-details.png",
+      "/projects/marketplace/cart.png",
+      "/projects/marketplace/vendor-dashboard.png",
+      "/projects/marketplace/signup.png",
+    ],
+
+    accent: "#2563EB",
+  },
+
   {
     title: "CoinTrack",
     description:
@@ -288,6 +417,10 @@ export default function SelectedProjects() {
 
   const [figmaLoaded, setFigmaLoaded] = useState(false);
 
+  const [activeImage, setActiveImage] = useState(0);
+
+  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+
   const ref = useRef(null);
 
   const inView = useInView(ref, {
@@ -302,6 +435,7 @@ export default function SelectedProjects() {
 
   // reset loader whenever modal changes
   useEffect(() => {
+    setActiveImage(0);
     setFigmaLoaded(false);
   }, [selected]);
 
@@ -382,6 +516,13 @@ export default function SelectedProjects() {
 
               {/* IMAGE */}
               <div className="relative h-[300px] overflow-hidden">
+                {p.gallery && p.gallery.length > 0 && (
+                  <div className="absolute top-4 right-4 z-20">
+                    <span className="px-3 py-1 rounded-full bg-black/70 text-white text-xs">
+                      {p.gallery.length} Screenshots
+                    </span>
+                  </div>
+                )}
                 <motion.img
                   src={p.image}
                   alt={p.title}
@@ -486,7 +627,21 @@ export default function SelectedProjects() {
               exit={{ scale: 0.96, opacity: 0, y: 10 }}
               transition={{ duration: 0.22 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl md:max-w-3xl max-h-[90vh] overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-black shadow-2xl"
+              className="
+relative
+w-[95vw]
+md:w-full
+max-w-4xl
+max-h-[95vh]
+overflow-hidden
+rounded-2xl
+border
+border-zinc-200
+dark:border-zinc-800
+bg-white
+dark:bg-black
+shadow-2xl
+"
             >
               {/* close button */}
               <button
@@ -581,6 +736,66 @@ export default function SelectedProjects() {
                 )}
 
                 {/* highlights */}
+                {/* GALLERY */}
+                {selected.gallery && selected.gallery.length > 0 && (
+                  <div className="space-y-3">
+                    <div
+                      className="overflow-hidden rounded-xl border bg-zinc-100 dark:bg-zinc-900 p-2 md:p-4 cursor-pointer"
+                      onClick={() =>
+                        setFullscreenImage(selected.gallery![activeImage])
+                      }
+                    >
+                      <img
+                        src={selected.gallery[activeImage]}
+                        alt={selected.title}
+                        className="
+      w-full
+      h-auto
+      object-contain
+      rounded-lg
+    "
+                      />
+                    </div>
+
+                    <div className="flex gap-2 overflow-x-auto pb-2">
+                      {selected.gallery.map((img, idx) => (
+                        <button
+                          key={img}
+                          onClick={() => setActiveImage(idx)}
+                          className={`shrink-0 rounded-lg overflow-hidden border-2 transition ${
+                            activeImage === idx
+                              ? "border-blue-500"
+                              : "border-transparent"
+                          }`}
+                        >
+                          <img
+                            src={img}
+                            alt=""
+                            className="w-24 h-16 object-cover"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* METRICS */}
+                {selected.metrics && (
+                  <div className="grid grid-cols-3 gap-3">
+                    {selected.metrics.map((m) => (
+                      <div
+                        key={m.label}
+                        className="rounded-xl border p-4 text-center"
+                      >
+                        <div className="text-2xl font-bold">{m.value}</div>
+
+                        <div className="text-xs text-muted-foreground">
+                          {m.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
                 {selected.highlights && (
                   <div className="space-y-3">
                     <h4 className="text-xs font-semibold uppercase tracking-wide text-zinc-500">
@@ -608,6 +823,30 @@ export default function SelectedProjects() {
                 )}
               </div>
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {fullscreenImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4"
+            onClick={() => setFullscreenImage(null)}
+          >
+            <img
+              src={fullscreenImage}
+              alt=""
+              className="
+w-auto
+h-auto
+max-w-[95vw]
+max-h-[95vh]
+object-contain
+rounded-lg
+"
+            />
           </motion.div>
         )}
       </AnimatePresence>

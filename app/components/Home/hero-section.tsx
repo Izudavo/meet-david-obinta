@@ -73,6 +73,17 @@ const HeroSection = () => {
     margin: "-100px",
   });
 
+  // Smooth scroll handler to target your projects view block
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Fallback if ID is not assigned yet: scrolls past hero height
+      window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       ref={ref}
@@ -94,13 +105,14 @@ const HeroSection = () => {
         </motion.div>
       </motion.div>
 
-      {/* PROFILE IMAGE */}
+      {/* PROFILE IMAGE & BUTTON WRAPPER */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={inView ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.8 }}
-        className="lg:col-span-4 order-1 lg:order-2 flex justify-center lg:justify-end"
+        className="lg:col-span-4 order-1 lg:order-2 flex flex-col items-center justify-center gap-6"
       >
+        {/* IMAGE CAPSULE */}
         <div className="relative w-[280px] h-[280px] md:w-[340px] md:h-[340px] flex items-center justify-center">
           <div className="w-44 h-44 md:w-72 md:h-72 rounded-full overflow-hidden ring-4 ring-border bg-background">
             <img
@@ -110,6 +122,15 @@ const HeroSection = () => {
             />
           </div>
         </div>
+
+        {/* VIEW PROJECTS BUTTON */}
+        <button
+          onClick={scrollToProjects}
+          className="group flex items-center gap-2 px-5 py-2.5 rounded-full border text-xs font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer bg-zinc-100 text-zinc-800 border-zinc-200/60 hover:bg-zinc-200 dark:bg-zinc-900 dark:text-zinc-200 dark:border-zinc-800/60 dark:hover:bg-zinc-800 shadow-sm animate-pulse"
+        >
+          View My Works
+          <FaArrowDown className="text-[10px] text-sky-500 transition-transform duration-300 group-hover:translate-y-0.5" />
+        </button>
       </motion.div>
 
       {/* CONTENT */}

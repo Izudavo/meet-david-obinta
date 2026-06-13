@@ -2,6 +2,100 @@ import { Project } from "../types";
 
 export const frontendProjects: Project[] = [
   {
+    title: "GHAN Platform",
+    description:
+      "Led the end-to-end redesign and development of the GHAN platform, transforming product requirements and Figma concepts into a scalable production-ready web application focused on performance, maintainability, and operational efficiency.",
+    category: "frontend",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "CMS",
+      "API Integration",
+      "SEO",
+    ],
+    highlights: [
+      "Designed and implemented responsive user interfaces from Figma concepts",
+      "Built scalable frontend architecture using Next.js and TypeScript",
+      "Integrated backend services for forms, messaging, and content workflows",
+      "Optimized SEO, accessibility, and performance across pages",
+      "Implemented automated email workflows and validation systems",
+      "Integrated dynamic content management using a headless CMS",
+      "Improved platform reliability with structured error handling and abuse prevention",
+      "Managed production deployments and release iterations",
+    ],
+    live: "https://www.globalharvestnetworks.com",
+    image: "/projects/ghan-platform.png",
+    accent: "#EAB308",
+  },
+
+  {
+    title: "CirvaX Web Platform",
+    description:
+      "Designed and developed a fintech landing platform for streamlined gift card trading with WhatsApp-assisted transaction workflows, trust-focused onboarding, and conversion-driven user experience.",
+    category: "frontend",
+    tech: [
+      "React",
+      "TypeScript",
+      "WhatsApp Integration",
+      "Tailwind",
+      "Fintech UI",
+    ],
+    highlights: [
+      "Built responsive fintech landing experience optimized for mobile users",
+      "Integrated WhatsApp-driven customer interaction and trading workflows",
+      "Designed trust-focused UI patterns for rates, transactions, and onboarding",
+      "Developed reusable frontend components and scalable layout system",
+      "Focused on conversion-oriented UX and simplified trading flows",
+    ],
+    live: "https://cirvax.com",
+    image: "/projects/cirva-gift-landing.png",
+    accent: "#3B82F6",
+  },
+
+  {
+    title: "Shopora -  A Multi-Vendor E-Commerce Marketplace",
+
+    description:
+      "Designed and developed a scalable e-commerce marketplace platform enabling vendors to manage products while providing customers with streamlined product discovery, shopping cart management, and checkout experiences across multiple categories.",
+
+    category: "frontend",
+
+    tech: [
+      "React",
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "Marketplace UI",
+      "E-Commerce",
+    ],
+
+    highlights: [
+      "Built modern marketplace experience for buyers and sellers",
+      "Developed product discovery workflows with category filtering and search",
+      "Implemented shopping cart and checkout user journeys",
+      "Created vendor-facing product management interfaces",
+      "Designed reusable component architecture for marketplace scalability",
+      "Optimized responsive experiences for desktop, tablet, and mobile users",
+      "Focused on conversion-oriented product listing and browsing experiences",
+    ],
+
+    live: undefined,
+
+    image: "/projects/marketplace/home.png",
+
+    gallery: [
+      "/projects/marketplace/products.png",
+      "/projects/marketplace/product-details.png",
+      "/projects/marketplace/cart.png",
+      "/projects/marketplace/vendor-dashboard.png",
+      "/projects/marketplace/signup.png",
+    ],
+
+    accent: "#2563EB",
+  },
+
+  {
     title: "ArticFlow - A Modern HVAC Service Website",
 
     description:
@@ -10,7 +104,7 @@ export const frontendProjects: Project[] = [
     category: "frontend",
 
     tech: [
-      "Vite",
+      "React",
       "TypeScript",
       "React",
       "Tailwind CSS",
@@ -40,6 +134,31 @@ export const frontendProjects: Project[] = [
     ],
 
     accent: "#0EA5E9",
+  },
+
+  {
+    title: "Sovereign Nest Estate Limited",
+    description:
+      "Designed and developed a modern real estate platform showcasing premium residential and commercial properties across Nigeria, with a focus on trust, luxury presentation, and lead generation.",
+    category: "frontend",
+    tech: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Real Estate UI",
+      "Responsive Design",
+    ],
+    highlights: [
+      "Built a premium real estate website for showcasing luxury properties across Lagos and Abuja",
+      "Developed responsive property listing experiences optimized for desktop and mobile users",
+      "Created conversion-focused inquiry and contact flows for prospective property buyers",
+      "Designed reusable components for property cards, listings, testimonials, and service sections",
+      "Implemented trust-building elements including verified listings, client testimonials, and company credentials",
+      "Structured content to highlight investment opportunities, property details, and advisory services",
+    ],
+    live: "https://sovereignnestltd.com",
+    image: "/projects/sovereign-nest.png",
+    accent: "#8A2BE2",
   },
 
   {
@@ -84,48 +203,6 @@ export const frontendProjects: Project[] = [
   },
 
   {
-    title: "Shopora -  A Multi-Vendor E-Commerce Marketplace",
-
-    description:
-      "Designed and developed a scalable e-commerce marketplace platform enabling vendors to manage products while providing customers with streamlined product discovery, shopping cart management, and checkout experiences across multiple categories.",
-
-    category: "frontend",
-
-    tech: [
-      "Vite",
-      "TypeScript",
-      "React",
-      "Tailwind CSS",
-      "Marketplace UI",
-      "E-Commerce",
-    ],
-
-    highlights: [
-      "Built modern marketplace experience for buyers and sellers",
-      "Developed product discovery workflows with category filtering and search",
-      "Implemented shopping cart and checkout user journeys",
-      "Created vendor-facing product management interfaces",
-      "Designed reusable component architecture for marketplace scalability",
-      "Optimized responsive experiences for desktop, tablet, and mobile users",
-      "Focused on conversion-oriented product listing and browsing experiences",
-    ],
-
-    live: undefined,
-
-    image: "/projects/marketplace/home.png",
-
-    gallery: [
-      "/projects/marketplace/products.png",
-      "/projects/marketplace/product-details.png",
-      "/projects/marketplace/cart.png",
-      "/projects/marketplace/vendor-dashboard.png",
-      "/projects/marketplace/signup.png",
-    ],
-
-    accent: "#2563EB",
-  },
-
-  {
     title: "CoinTrack",
     description:
       "A responsive cryptocurrency tracking web application that displays real-time prices and market data for popular cryptocurrencies using the CoinGecko API.",
@@ -149,83 +226,6 @@ export const frontendProjects: Project[] = [
     live: "https://cointrack-91a8e.web.app",
     image: "/projects/cointrack-img.png",
     accent: "#EAB308",
-  },
-
-  {
-    title: "GHAN Platform",
-    description:
-      "Led the end-to-end redesign and development of the GHAN platform, transforming product requirements and Figma concepts into a scalable production-ready web application focused on performance, maintainability, and operational efficiency.",
-    category: "frontend",
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind",
-      "CMS",
-      "API Integration",
-      "SEO",
-    ],
-    highlights: [
-      "Designed and implemented responsive user interfaces from Figma concepts",
-      "Built scalable frontend architecture using Next.js and TypeScript",
-      "Integrated backend services for forms, messaging, and content workflows",
-      "Optimized SEO, accessibility, and performance across pages",
-      "Implemented automated email workflows and validation systems",
-      "Integrated dynamic content management using a headless CMS",
-      "Improved platform reliability with structured error handling and abuse prevention",
-      "Managed production deployments and release iterations",
-    ],
-    live: "https://www.globalharvestnetworks.com",
-    image: "/projects/ghan-platform.png",
-    accent: "#EAB308",
-  },
-
-  {
-    title: "Sovereign Nest Estate Limited",
-    description:
-      "Designed and developed a modern real estate platform showcasing premium residential and commercial properties across Nigeria, with a focus on trust, luxury presentation, and lead generation.",
-    category: "frontend",
-    tech: [
-      "Vite",
-      "TypeScript",
-      "Tailwind CSS",
-      "Real Estate UI",
-      "Responsive Design",
-    ],
-    highlights: [
-      "Built a premium real estate website for showcasing luxury properties across Lagos and Abuja",
-      "Developed responsive property listing experiences optimized for desktop and mobile users",
-      "Created conversion-focused inquiry and contact flows for prospective property buyers",
-      "Designed reusable components for property cards, listings, testimonials, and service sections",
-      "Implemented trust-building elements including verified listings, client testimonials, and company credentials",
-      "Structured content to highlight investment opportunities, property details, and advisory services",
-    ],
-    live: "https://sovereignnestltd.com",
-    image: "/projects/sovereign-nest.png",
-    accent: "#8A2BE2",
-  },
-
-  {
-    title: "CirvaX Web Platform",
-    description:
-      "Designed and developed a fintech landing platform for streamlined gift card trading with WhatsApp-assisted transaction workflows, trust-focused onboarding, and conversion-driven user experience.",
-    category: "frontend",
-    tech: [
-      "Vite",
-      "TypeScript",
-      "WhatsApp Integration",
-      "Tailwind",
-      "Fintech UI",
-    ],
-    highlights: [
-      "Built responsive fintech landing experience optimized for mobile users",
-      "Integrated WhatsApp-driven customer interaction and trading workflows",
-      "Designed trust-focused UI patterns for rates, transactions, and onboarding",
-      "Developed reusable frontend components and scalable layout system",
-      "Focused on conversion-oriented UX and simplified trading flows",
-    ],
-    live: "https://cirvax.com",
-    image: "/projects/cirva-gift-landing.png",
-    accent: "#3B82F6",
   },
 
   {

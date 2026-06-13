@@ -77,7 +77,7 @@ export function ProjectModal({ project, onClose, onImageClick }: ProjectModalPro
               )}
               {project.live && (
                 <a href={project.live} target="_blank" className="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition">
-                  <ExternalLink className="w-4 h-4" /> Live
+                  <ExternalLink className="w-4 h-4" /> Click for live url
                 </a>
               )}
               {project.figma && (

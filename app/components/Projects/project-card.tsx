@@ -84,7 +84,7 @@ export function ProjectCard({ project, index, onClick }: ProjectCardProps) {
               className="flex items-center gap-1 text-sm text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition"
             >
               <ExternalLink className="w-4 h-4" />
-              Click to see live url
+              Click here to see live url
             </a>
           )}
           {project.figma && (
@@ -95,7 +95,7 @@ export function ProjectCard({ project, index, onClick }: ProjectCardProps) {
               className="flex items-center gap-1 text-sm text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition"
             >
               <FaFigma className="w-4 h-4" />
-              Figma →
+              Click here to view on Figma →
             </a>
           )}
         </div>

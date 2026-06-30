@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { unified } from "unified";
+import type { Metadata } from "next";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
@@ -42,6 +43,49 @@ async function getPost(slug: string) {
   return {
     data,
     contentHtml: processedContent.toString(),
+  };
+}
+
+// new: for seo
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const { data } = await getPost(slug);
+
+  return {
+    title: data.title,
+    description:
+      data.excerpt ||
+      "Insights on software engineering, cloud, DevOps and system design.",
+
+    alternates: {
+      canonical: `/blog/${slug}`,
+    },
+
+    openGraph: {
+      title: data.title,
+      description: data.excerpt,
+      url: `https://davidobinta.xyz/blog/${slug}`,
+      type: "article",
+      publishedTime: data.date,
+      images: data.image
+        ? [
+            {
+              url: data.image,
+            },
+          ]
+        : [],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: data.title,
+      description: data.excerpt,
+      images: data.image ? [data.image] : [],
+    },
   };
 }
 

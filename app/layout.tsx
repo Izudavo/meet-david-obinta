@@ -20,8 +20,61 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "David Obinta Portfolio",
-  description: "Full Stack and DevOps Engineer",
+  metadataBase: new URL("https://davidobinta.xyz"),
+
+  title: {
+    default: "David Obinta | Full Stack & Cloud Engineer",
+    template: "%s | David Obinta",
+  },
+
+  description:
+    "Full-stack, cloud and DevOps engineer building scalable web applications, scalable backend systems, and cloud infrastructure.",
+
+  keywords: [
+    "David Obinta",
+    "Full Stack Developer",
+    "Frontend Developer",
+    "Cloud Engineer",
+    "DevOps Engineer",
+    "Web Engineer",
+    "React",
+    "Next.js",
+    "AWS",
+    "JavaScript",
+    "TypeScript",
+    "AWS Solutions Architect",
+    "Bash",
+    "Linux",
+  ],
+
+  alternates: {
+    canonical: "/",
+  },
+
+  openGraph: {
+  title: "David Obinta | Full Stack & Cloud Engineer",
+  description:
+    "Full-stack, cloud and DevOps engineer building scalable web applications and infrastructure.",
+  url: "https://davidobinta.xyz",
+  siteName: "David Obinta",
+  type: "website",
+  images: [
+    {
+      url: "/opengraph-image.jpg",
+      width: 1200,
+      height: 630,
+      alt: "David Obinta - Full Stack & Cloud/DevOps Engineer",
+    },
+  ],
+},
+
+twitter: {
+  card: "summary_large_image",
+  title: "David Obinta | Full Stack & Cloud Engineer",
+  description:
+    "Full-stack, cloud and DevOps engineer building scalable web applications and infrastructure.",
+  images: ["/opengraph-image.jpg"],
+},
 };
 
 export default function RootLayout({

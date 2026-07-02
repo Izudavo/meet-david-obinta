@@ -7,6 +7,7 @@ import BlogPreviewSection from './components/Home/blog-section';
 import CertificationsSection from './components/Home/certifications-section';
 import ServicesSection from './components/Home/services-section';
 import ProjectsSection from "./components/Projects/projects-block";
+import ContactSection from './components/Home/contact-section';
 
 export default function Homepage() {
   return (
@@ -37,6 +38,10 @@ export default function Homepage() {
 
       <div id="blog-preview">
         <BlogPreviewSection />
+      </div>
+
+      <div id="contact">
+        <ContactSection />
       </div>
 
     </main>

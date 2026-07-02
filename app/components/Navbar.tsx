@@ -8,100 +8,174 @@ import {
   Sun,
   Moon,
   WorkflowIcon,
+  Mail,
 } from "lucide-react";
+
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
+const navItems = [
+  {
+    label: "About",
+    id: "about",
+    icon: Folder,
+  },
+  {
+    label: "Projects",
+    id: "projects",
+    icon: WorkflowIcon,
+  },
+  {
+    label: "Experience",
+    id: "experience",
+    icon: Briefcase,
+  },
+  {
+    label: "Contact",
+    id: "contact",
+    icon: Mail,
+  },
+];
+
 const Navbar = () => {
   const { resolvedTheme, setTheme } = useTheme();
+
   const [mounted, setMounted] = useState(false);
+
+  // stores clicked item only
+  const [activeSection, setActiveSection] = useState("home");
+
   const pathname = usePathname();
   const router = useRouter();
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+
+    if (pathname.startsWith("/blog")) {
+      setActiveSection("blog");
+    } else {
+      setActiveSection("home");
+    }
+  }, [pathname]);
+
   if (!mounted) return null;
 
   const isDark = resolvedTheme === "dark";
   const isHome = pathname === "/";
 
-  const iconClass = (active: boolean) =>
-    `w-5 h-5 transition-all duration-200 ${
-      active
-        ? "text-white scale-110 drop-shadow-[0_0_6px_rgba(255,255,255,0.4)]"
-        : "text-gray-400 hover:text-white"
-    }`;
-
-  /**
-   * Handles smooth navigation:
-   * - If already on home - scroll
-   * - If not - navigate to "/#section"
-   */
   const handleSectionNav = (section: string) => {
+    setActiveSection(section);
+
     if (isHome) {
       const el = document.getElementById(section);
+
       if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
+        el.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
       }
     } else {
       router.push(`/#${section}`);
     }
   };
 
-  const isActive = (path: string) => pathname === path;
+  const iconClass = (active: boolean) =>
+    `w-5 h-5 transition-all duration-300 ${
+      active
+        ? `
+          text-blue-950 dark:text-blue-400
+          scale-110
+          drop-shadow-[0_0_8px_rgba(30,64,175,0.45)]
+        `
+        : `
+          text-muted-foreground
+          hover:text-black
+          dark:hover:text-white
+        `
+    }`;
 
   return (
-    <nav className="fixed top-6 left-1/2 -translate-x-1/2 bg-[#1A1A1A]/80 dark:bg-black/60 backdrop-blur-md border border-white/10 px-5 py-3 rounded-2xl flex items-center gap-5 z-50">
-
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 rounded-2xl border border-border bg-background/80 backdrop-blur-xl px-5 py-3 flex items-center gap-5 shadow-sm">
       {/* HOME */}
-      <button onClick={() => router.push("/")} aria-label="Home">
-        <Home className={iconClass(isActive("/"))} />
-      </button>
-
-      {/* ABOUT */}
       <button
-        onClick={() => handleSectionNav("about")}
-        aria-label="About"
+        onClick={() => {
+          setActiveSection("home");
+          router.push("/");
+        }}
+        className="relative group"
       >
-        <Folder className={iconClass(false)} />
+        {activeSection === "home" && (
+          <div className="absolute inset-0 scale-[2] rounded-full bg-blue-950/35 dark:bg-blue-900/45 blur-md" />
+        )}
+
+        <Home className={iconClass(activeSection === "home")} />
+
+        <span className="absolute left-1/2 top-10 -translate-x-1/2 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition bg-black text-white dark:bg-white dark:text-black text-xs px-2 py-1 rounded-lg whitespace-nowrap pointer-events-none">
+          Home
+        </span>
       </button>
 
-      {/* EXPERIENCE */}
-      <button
-        onClick={() => handleSectionNav("experience")}
-        aria-label="Experience"
-      >
-        <Briefcase className={iconClass(false)} />
-      </button>
+      {/* SECTION ITEMS */}
+      {navItems.map((item) => {
+        const Icon = item.icon;
 
-      {/* PROJECTS */}
-      <button
-        onClick={() => handleSectionNav("projects")}
-        aria-label="Projects"
-      >
-        <WorkflowIcon className={iconClass(false)} />
-      </button>
+        const active = activeSection === item.id;
 
-      {/* BLOG (real route) */}
-      <Link href="/blog" aria-label="Blog">
-        <Edit3 className={iconClass(isActive("/blog"))} />
+        return (
+          <button
+            key={item.id}
+            onClick={() => handleSectionNav(item.id)}
+            className="relative group"
+          >
+            {active && (
+              <div className="absolute inset-0 scale-[2] rounded-full bg-blue-950/35 dark:bg-blue-900/45 blur-md" />
+            )}
+
+            <Icon className={iconClass(active)} />
+
+            <span className="absolute left-1/2 top-10 -translate-x-1/2 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition bg-black text-white dark:bg-white dark:text-black text-xs px-2 py-1 rounded-lg whitespace-nowrap pointer-events-none">
+              {item.label}
+            </span>
+          </button>
+        );
+      })}
+
+      {/* BLOG */}
+      <Link
+        href="/blog"
+        onClick={() => setActiveSection("blog")}
+        className="relative group"
+      >
+        {pathname.startsWith("/blog") && (
+          <div className="absolute inset-0 scale-[2] rounded-full bg-blue-950/35 dark:bg-blue-900/45 blur-md" />
+        )}
+
+        <Edit3 className={iconClass(pathname.startsWith("/blog"))} />
+
+        <span className="absolute left-1/2 top-10 -translate-x-1/2 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition bg-black text-white dark:bg-white dark:text-black text-xs px-2 py-1 rounded-lg whitespace-nowrap pointer-events-none">
+          Blog
+        </span>
       </Link>
 
-      {/* DIVIDER */}
-      <div className="w-px h-5 bg-white/10" />
+      <div className="w-px h-5 bg-border" />
 
-      {/* THEME TOGGLE */}
+      {/* THEME */}
       <button
-        onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-        className="flex items-center justify-center"
-        aria-label="Toggle Theme"
+        onClick={() => setTheme(isDark ? "light" : "dark")}
+        className="relative group"
       >
         {isDark ? (
-          <Sun className="w-5 h-5 text-yellow-400 hover:scale-110 transition" />
+          <Sun className="w-5 h-5 text-yellow-400" />
         ) : (
-          <Moon className="w-5 h-5 text-gray-300 hover:scale-110 transition" />
+          <Moon className="w-5 h-5 text-muted-foreground" />
         )}
+
+        <span className="absolute left-1/2 top-10 -translate-x-1/2 opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transition bg-black text-white dark:bg-white dark:text-black text-xs px-2 py-1 rounded-lg whitespace-nowrap pointer-events-none">
+          Theme
+        </span>
       </button>
     </nav>
   );

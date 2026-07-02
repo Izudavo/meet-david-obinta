@@ -10,7 +10,7 @@ const experiences = [
     company: "Authentic Finance",
     logo: "/af_logo.png",
     type: "Full-time",
-    period: "Mar 2025 - Present",
+    period: "Mar 2025 - Mar 2026",
     location: "Remote",
     color: "#38BDF8",
     description:

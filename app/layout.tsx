@@ -7,6 +7,7 @@ import SpaceBackground from "./components/ui/SpaceBackground";
 import ThemeProvider from "./theme-provider";
 import Navbar from "./components/Navbar";
 import FooterSection from "./components/Home/footer-section";
+import { Toaster } from "react-hot-toast";
 
 
 const geistSans = Geist({
@@ -91,6 +92,20 @@ export default function RootLayout({
           <SplashScreen/>
           
           <SpaceBackground />
+
+           {/* TOAST */}
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                borderRadius: "16px",
+                border: "1px solid hsl(var(--border))",
+                background: "hsl(var(--background))",
+                color: "hsl(var(--foreground))",
+              },
+            }}
+          />
 
           {/* GLOBAL NAV */}
           <Navbar />

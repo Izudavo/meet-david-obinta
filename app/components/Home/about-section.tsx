@@ -24,23 +24,21 @@ const AboutSection = () => {
         </h2>
 
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-          I’m a fullstack engineer with a strong focus on building scalable
-          systems across web, mobile, and cloud infrastructure. I work across
-          the entire product lifecycle from system design and backend APIs to
-          frontend interfaces and deployment automation.
+          I’m a software engineer and video editor working across two connected
+          practices: building useful digital products and shaping raw material
+          into clear, memorable visual stories.
         </p>
 
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-          Over the past few years, I’ve built and contributed to multiple
-          production systems involving authentication flows, wallet-based
-          transaction systems, real-time communication features, and
-          cloud-hosted services on AWS.
+          On the engineering side, I work across product design, frontend
+          interfaces, backend systems, and cloud infrastructure. On the video
+          side, I care about rhythm, structure, sound, and the details that
+          make an edit feel intentional.
         </p>
 
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-          My strength lies in connecting product thinking with engineering
-          execution, designing systems that are not just functional, but
-          reliable, scalable, and ready for real users.
+          My strength is moving between structure and expression without losing
+          sight of the audience, the message, or the final experience.
         </p>
       </motion.div>
 

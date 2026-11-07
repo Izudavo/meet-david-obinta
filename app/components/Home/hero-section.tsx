@@ -6,80 +6,50 @@ import { useEffect, useRef, useState } from "react";
 
 import { socials } from "../ui/socials";
 
-const roles = ["FULLSTACK", "DEVOPS", "CLOUD"];
+const roles = ["SOFTWARE ENGINEER", "VIDEO EDITOR", "CREATIVE BUILDER"];
 
-{
-  /* SOCIAL LINKS */
-}
-<div className="flex flex-wrap justify-center gap-6">
-  {socials.map((social) => {
-    const Icon = social.icon;
-
-    return (
-      <a
-        key={social.label}
-        href={social.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`flex items-center gap-2 hover:opacity-80 transition ${social.color}`}
-      >
-        <Icon className="w-5 h-5" />
-        {social.label}
-      </a>
-    );
-  })}
-</div>;
-
-// TITLE
+// ANIMATED TITLE
 const AnimatedTitle = () => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % roles.length);
-    }, 8000);
+    }, 4500); // Tighter timing feels punchier
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <h2 className="text-[40px] sm:text-[60px] md:text-[75px] lg:text-[85px] font-black leading-[0.9] uppercase tracking-tight text-foreground">
-      <div className="h-[1.1em] overflow-hidden">
+    <h2 className="text-[34px] font-black uppercase tracking-[-0.045em] text-foreground sm:text-[54px] md:text-[60px] lg:text-[60px] xl:text-[68px]">
+      <div className="relative h-[1.25em] overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.span
             key={roles[index]}
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -50, opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="block"
+            initial={{ y: 60, opacity: 0, filter: "blur(8px)" }}
+            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+            exit={{ y: -60, opacity: 0, filter: "blur(8px)" }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="block whitespace-nowrap"
           >
             {roles[index]}
           </motion.span>
         </AnimatePresence>
       </div>
-
-      <span className="block text-muted-foreground">ENGINEER</span>
     </h2>
   );
 };
 
-// HERO
+// HERO SECTION
 const HeroSection = () => {
   const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
 
-  const inView = useInView(ref, {
-    once: true,
-    margin: "-100px",
-  });
-
-  // Smooth scroll handler to target your projects view block
   const scrollToProjects = () => {
     const projectsSection = document.getElementById("projects");
     if (projectsSection) {
       projectsSection.scrollIntoView({ behavior: "smooth" });
     } else {
-      // Fallback if ID is not assigned yet: scrolls past hero height
       window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
     }
   };
@@ -87,19 +57,22 @@ const HeroSection = () => {
   return (
     <section
       ref={ref}
-      className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 pt-30 lg:pt-40 pb-24 lg:pb-36 items-center px-4"
+      className="relative max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-28 lg:pt-36 pb-24 lg:pb-32 items-center px-6"
     >
+      {/* AMBIENT GLOW BACKDROP FOR DEPTH */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] lg:w-[500px] lg:h-[500px] bg-sky-500/10 dark:bg-sky-500/5 rounded-full blur-3xl pointer-events-none -z-10" />
+
       {/* SCROLL INDICATOR */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 0.6 }}
-        className="absolute left-1/2 -translate-x-1/2 bottom-8 lg:bottom-12 flex flex-col items-center text-muted-foreground pointer-events-none"
+        className="absolute left-1/2 -translate-x-1/2 bottom-4 lg:bottom-6 flex flex-col items-center text-muted-foreground/60 pointer-events-none"
       >
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-          className="text-lg"
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+          className="text-sm"
         >
           <FaArrowDown />
         </motion.div>
@@ -107,70 +80,73 @@ const HeroSection = () => {
 
       {/* PROFILE IMAGE & BUTTON WRAPPER */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0.95 }}
         animate={inView ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 0.8 }}
-        className="lg:col-span-4 order-1 lg:order-2 flex flex-col items-center justify-center gap-6"
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="lg:col-span-4 order-1 lg:order-2 flex flex-col items-center justify-center gap-8"
       >
-        {/* IMAGE CAPSULE */}
-        <div className="relative w-[280px] h-[280px] md:w-[340px] md:h-[340px] flex items-center justify-center">
-          <div className="w-44 h-44 md:w-72 md:h-72 rounded-full overflow-hidden ring-4 ring-border bg-background">
+        {/* EDITORIAL IMAGE CAPSULE WITH DOUBLE RING & GLOW */}
+        <div className="relative group p-3 rounded-full border border-border/80 bg-background/50 backdrop-blur-md shadow-2xl">
+          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-sky-500/20 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+          
+          <div className="w-56 h-56 md:w-68 md:h-68 rounded-full overflow-hidden bg-muted relative">
             <img
               src="/izu.png"
               alt="David Obinta"
-              className="object-cover object-top w-full h-full grayscale contrast-125"
+              className="object-cover object-top w-full h-full grayscale contrast-125 group-hover:scale-105 transition-transform duration-700 ease-out"
             />
+            {/* Subtle inner shadow overlay */}
+            <div className="absolute inset-0 shadow-[inset_0_0_20px_rgba(0,0,0,0.2)] pointer-events-none" />
           </div>
         </div>
 
         {/* VIEW PROJECTS BUTTON */}
         <button
           onClick={scrollToProjects}
-          className="group flex items-center gap-2 px-5 py-2.5 rounded-full border text-xs font-semibold tracking-wider uppercase transition-all duration-300 cursor-pointer bg-zinc-100 text-zinc-800 border-zinc-200/60 hover:bg-zinc-200 dark:bg-zinc-900 dark:text-zinc-200 dark:border-zinc-800/60 dark:hover:bg-zinc-800 shadow-sm animate-pulse"
+          className="group relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-xs font-semibold tracking-widest uppercase transition-all duration-300 cursor-pointer bg-foreground text-background hover:opacity-90 shadow-md active:scale-95"
         >
-          View My Works
-          <FaArrowDown className="text-[10px] text-sky-500 transition-transform duration-300 group-hover:translate-y-0.5" />
+          <span>Explore Works</span>
+          <FaArrowDown className="text-[10px] text-sky-400 transition-transform duration-300 group-hover:translate-y-1" />
         </button>
       </motion.div>
 
       {/* CONTENT */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 25 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         className="lg:col-span-8 flex flex-col justify-center text-center lg:text-left space-y-10 order-2 lg:order-1"
       >
-        <header>
+        <header className="space-y-4">
+          
           <AnimatedTitle />
 
-          <p className="max-w-md mx-auto lg:mx-0 text-muted-foreground text-base md:text-lg mt-6 leading-relaxed">
-            I design, build, and deploy scalable systems from infrastructure to
-            fullstack applications with a focus on performance, automation, and
-            reliability.
+          <p className="max-w-xl mx-auto lg:mx-0 text-muted-foreground text-base md:text-lg leading-relaxed font-normal">
+            I craft engineered web & mobile applications and shape raw digital concepts into immersive visual narratives, balancing rigorous systems architecture with fine-tuned aesthetic detail.
           </p>
         </header>
 
         {/* STATS */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.4 }}
-          className="grid grid-cols-3 gap-x-2 md:gap-x-4"
+          initial={{ opacity: 0, y: 10 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="grid grid-cols-3 gap-4 pt-2 border-t border-border/60 max-w-lg mx-auto lg:mx-0"
         >
-          <Stat item="+5" label="Years Experience" />
-          <Stat item="+20" label="Projects" />
-          <Stat item="+4" label="Certifications" />
+          <Stat item="03+" label="Core disciplines" />
+          <Stat item="20+" label="Projects shipped" />
+          <Stat item="100%" label="Craft focus" />
         </motion.div>
 
         {/* SOCIALS */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.6 }}
-          className="space-y-4 pt-2"
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="space-y-3 pt-2"
         >
-          <p className="text-base md:text-lg italic text-muted-foreground/80 tracking-wide">
-            Connect with me across these platforms
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground/80">
+            Connect & Platforms
           </p>
 
           <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6">
@@ -183,11 +159,10 @@ const HeroSection = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-2 hover:opacity-80 transition ${social.color}`}
+                  className={`group flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors duration-200 ${social.color}`}
                 >
-                  <Icon className="w-5 h-5" />
-
-                  <span className="text-sm uppercase tracking-wider text-foreground">
+                  <Icon className="w-4 h-4 transition-transform duration-200 group-hover:scale-110" />
+                  <span className="text-xs uppercase tracking-wider font-medium">
                     {social.label}
                   </span>
                 </a>
@@ -200,14 +175,13 @@ const HeroSection = () => {
   );
 };
 
-// STAT
+// STAT COMPONENT
 const Stat = ({ item, label }: { item: string; label: string }) => (
   <div className="flex flex-col items-center lg:items-start leading-tight">
-    <p className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
+    <p className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground">
       {item}
     </p>
-
-    <p className="text-[10px] md:text-[12px] uppercase tracking-[0.15em] text-muted-foreground mt-1 font-semibold">
+    <p className="text-[10px] md:text-[11px] uppercase tracking-[0.15em] text-muted-foreground mt-1 font-semibold">
       {label}
     </p>
   </div>

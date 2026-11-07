@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#0b1220"/><stop offset="0.55" stop-color="#164e63"/><stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#67e8f9" stop-opacity="0"/><stop offset="0.5" stop-color="#cffafe" stop-opacity=".8"/><stop offset="1" stop-color="#67e8f9" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="720" height="1280" fill="url(#bg)"/>
+  <circle cx="590" cy="210" r="250" fill="#22d3ee" opacity=".12"/>
+  <path d="M-80 920 Q280 670 800 870 L800 1120 Q300 930 -80 1130Z" fill="#020617" opacity=".85"/>
+  <path d="M55 910 Q310 735 690 865" fill="none" stroke="url(#shine)" stroke-width="12"/>
+  <text x="56" y="78" fill="#a5f3fc" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="5">AUTOMOTIVE EDIT</text>
+  <text x="56" y="1010" fill="white" font-family="Arial,sans-serif" font-size="48" font-weight="800">HYUNDAI</text>
+  <text x="56" y="1065" fill="white" font-family="Arial,sans-serif" font-size="48" font-weight="800">TUCSON</text>
+  <text x="56" y="1120" fill="#67e8f9" font-family="Arial,sans-serif" font-size="24" font-weight="700" letter-spacing="3">PAINT CORRECTION + CERAMIC COATING</text>
+  <circle cx="620" cy="1190" r="42" fill="#22d3ee"/><path d="M610 1170 642 1190 610 1210Z" fill="#082f49"/>
+</svg>

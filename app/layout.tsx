@@ -24,12 +24,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://davidobinta.xyz"),
 
   title: {
-    default: "David Obinta | Full Stack & Cloud Engineer",
+    default: "David Obinta | Software Engineer & Video Editor",
     template: "%s | David Obinta",
   },
 
   description:
-    "Full-stack, cloud and DevOps engineer building scalable web applications, scalable backend systems, and cloud infrastructure.",
+    "Software engineer and video editor building dependable digital products and shaping clear, memorable visual stories.",
 
   keywords: [
     "David Obinta",
@@ -44,6 +44,8 @@ export const metadata: Metadata = {
     "JavaScript",
     "TypeScript",
     "AWS Solutions Architect",
+    "Video Editor",
+    "Video Editing",
     "Bash",
     "Linux",
   ],
@@ -53,9 +55,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-  title: "David Obinta | Full Stack & Cloud Engineer",
+  title: "David Obinta | Software Engineer & Video Editor",
   description:
-    "Full-stack, cloud and DevOps engineer building scalable web applications and infrastructure.",
+    "Software engineer and video editor building digital products and visual stories.",
   url: "https://davidobinta.xyz",
   siteName: "David Obinta",
   type: "website",
@@ -71,9 +73,9 @@ export const metadata: Metadata = {
 
 twitter: {
   card: "summary_large_image",
-  title: "David Obinta | Full Stack & Cloud Engineer",
+  title: "David Obinta | Software Engineer & Video Editor",
   description:
-    "Full-stack, cloud and DevOps engineer building scalable web applications and infrastructure.",
+    "Software engineer and video editor building digital products and visual stories.",
   images: ["/opengraph-image.jpg"],
 },
 };
@@ -84,7 +86,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen relative bg-[var(--background)] text-[var(--foreground)]`}
       >

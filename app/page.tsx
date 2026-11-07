@@ -1,4 +1,6 @@
 import HeroSection from './components/Home/hero-section';
+import PortfolioShowcase from './components/Home/portfolio-showcase';
+import PortfolioSwitcher from './components/Home/portfolio-switcher';
 import AboutSection from './components/Home/about-section';
 import StackSection from './components/Home/stack-section';
 import ExperienceSection from './components/Home/work-section';
@@ -6,7 +8,6 @@ import ExperienceSection from './components/Home/work-section';
 import BlogPreviewSection from './components/Home/blog-section';
 import CertificationsSection from './components/Home/certifications-section';
 import ServicesSection from './components/Home/services-section';
-import ProjectsSection from "./components/Projects/projects-block";
 import ContactSection from './components/Home/contact-section';
 
 export default function Homepage() {
@@ -17,16 +18,14 @@ export default function Homepage() {
         <HeroSection />
       </div>
 
+      <PortfolioShowcase />
+
       <div id="about">
         <AboutSection />
       </div>
 
       <div id="stack">
         <StackSection />
-      </div>
-
-       <div id="projects">
-        <ProjectsSection />
       </div>
 
         <ServicesSection/>
@@ -43,6 +42,8 @@ export default function Homepage() {
       <div id="contact">
         <ContactSection />
       </div>
+
+      <PortfolioSwitcher />
 
     </main>
   );

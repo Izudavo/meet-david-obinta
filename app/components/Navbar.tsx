@@ -7,7 +7,6 @@ import {
   Edit3,
   Sun,
   Moon,
-  WorkflowIcon,
   Mail,
 } from "lucide-react";
 
@@ -21,11 +20,6 @@ const navItems = [
     label: "About",
     id: "about",
     icon: Folder,
-  },
-  {
-    label: "Projects",
-    id: "projects",
-    icon: WorkflowIcon,
   },
   {
     label: "Experience",

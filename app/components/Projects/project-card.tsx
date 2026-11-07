@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { FaGithub, FaFigma } from "react-icons/fa";
 import { Project } from "./types";
 
@@ -18,12 +18,8 @@ export function ProjectCard({ project, index, onClick }: ProjectCardProps) {
       transition={{ duration: 0.45, delay: index * 0.05 }}
       whileHover={{ y: -8 }}
       onClick={onClick}
-      className="group relative overflow-hidden rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 cursor-pointer transition-all duration-500 hover:shadow-2xl hover:shadow-black/5 dark:hover:shadow-white/5"
+      className="group relative cursor-pointer overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 text-white transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/10"
     >
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-10 blur-3xl transition duration-700"
-        style={{ background: project.accent }}
-      />
 
       <div className="relative h-[300px] overflow-hidden">
         {project.gallery && project.gallery.length > 0 && (
@@ -40,24 +36,24 @@ export function ProjectCard({ project, index, onClick }: ProjectCardProps) {
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
       </div>
 
       <div className="p-6 space-y-4 relative z-20">
         <div className="space-y-2">
-          <h3 className="text-2xl font-bold" style={{ color: project.accent }}>
+          <h3 className="text-2xl font-bold text-white">
             {project.title}
           </h3>
-          <p className="text-sm leading-relaxed text-zinc-700 dark:text-zinc-300">
+          <p className="text-sm leading-relaxed text-zinc-300">
             {project.description}
           </p>
         </div>
 
         <div className="flex flex-wrap gap-2">
-          {project.tech.map((t) => (
+          {project.tech.map((t, techIndex) => (
             <span
-              key={t}
-              className="px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-700 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-900"
+              key={`${t}-${techIndex}`}
+              className="rounded-full border border-zinc-700 bg-zinc-900 px-3 py-1 text-xs text-zinc-300"
             >
               {t}
             </span>
@@ -70,10 +66,11 @@ export function ProjectCard({ project, index, onClick }: ProjectCardProps) {
               href={project.github}
               target="_blank"
               onClick={(e) => e.stopPropagation()}
-              className="flex items-center gap-1 text-sm text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition"
+              className="flex items-center gap-1 text-sm text-zinc-300 transition hover:text-white"
             >
               <FaGithub className="w-4 h-4" />
-              View Github repo →
+              View Github repo
+              <ArrowUpRight className="w-4 h-4" />
             </a>
           )}
           {project.live && (
@@ -81,7 +78,7 @@ export function ProjectCard({ project, index, onClick }: ProjectCardProps) {
               href={project.live}
               target="_blank"
               onClick={(e) => e.stopPropagation()}
-              className="flex items-center gap-1 text-sm text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition"
+              className="flex items-center gap-1 text-sm text-zinc-300 transition hover:text-white"
             >
               <ExternalLink className="w-4 h-4" />
               Click here to see live url
@@ -92,10 +89,11 @@ export function ProjectCard({ project, index, onClick }: ProjectCardProps) {
               href={project.figma}
               target="_blank"
               onClick={(e) => e.stopPropagation()}
-              className="flex items-center gap-1 text-sm text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition"
+              className="flex items-center gap-1 text-sm text-zinc-300 transition hover:text-white"
             >
               <FaFigma className="w-4 h-4" />
-              Click here to view on Figma →
+              Click here to view on Figma
+              <ArrowUpRight className="w-4 h-4" />
             </a>
           )}
         </div>

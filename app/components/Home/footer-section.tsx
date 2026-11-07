@@ -16,6 +16,11 @@ const skills = [
   "CI/CD",
   "Flutter",
   "System Design",
+  "Premiere Pro",
+  "CapCut",
+  "Adobe Audition",
+  "Sound Design",
+  "Visual Storytelling",
 ];
 
 const FooterSection = () => {
@@ -37,8 +42,7 @@ const FooterSection = () => {
 
         <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
           I’m open to full-time roles, freelance projects, and collaborations
-          around scalable systems, cloud infrastructure, and fullstack
-          development.
+          across software engineering, video editing, and visual storytelling.
         </p>
 
         {/* EMAIL */}
@@ -76,16 +80,21 @@ const FooterSection = () => {
         </div>
       </div>
 
-      {/* SKILLS */}
-      <div className="flex flex-wrap justify-center gap-2">
-        {skills.map((skill, i) => (
-          <span
-            key={i}
-            className="px-3 py-1 text-xs rounded-full border border-white/10 bg-white/5 text-muted-foreground"
-          >
-            {skill}
-          </span>
-        ))}
+      {/* SKILLS CAROUSEL */}
+      <div className="space-y-4">
+  
+        <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+          <div className="footer-skills-track flex w-max items-center gap-3 pr-3 hover:[animation-play-state:paused]">
+            {[...skills, ...skills].map((skill, index) => (
+              <span
+                key={`${skill}-${index}`}
+                className="whitespace-nowrap rounded-full border border-border bg-background/70 px-4 py-2 text-xs font-medium text-muted-foreground backdrop-blur-md transition-colors hover:text-foreground"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* COPYRIGHT */}

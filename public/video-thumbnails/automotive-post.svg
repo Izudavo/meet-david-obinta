@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#172554"/><stop offset=".5" stop-color="#3730a3"/><stop offset="1" stop-color="#111827"/></linearGradient>
+  </defs>
+  <rect width="720" height="1280" fill="url(#bg)"/>
+  <circle cx="120" cy="240" r="250" fill="#818cf8" opacity=".2"/>
+  <path d="M-100 910 Q290 650 820 850 L820 1120 Q310 950 -100 1140Z" fill="#111827" opacity=".9"/>
+  <path d="M35 885 Q330 700 700 845" fill="none" stroke="#c7d2fe" stroke-opacity=".8" stroke-width="10"/>
+  <text x="56" y="78" fill="#c7d2fe" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="5">GHAN / HIGHLIGHT REEL</text>
+  <text x="56" y="1010" fill="white" font-family="Arial,sans-serif" font-size="52" font-weight="800">OUR JOURNEY</text>
+  <text x="56" y="1068" fill="white" font-family="Arial,sans-serif" font-size="52" font-weight="800">SO FAR</text>
+  <text x="56" y="1124" fill="#a5b4fc" font-family="Arial,sans-serif" font-size="25" font-weight="700" letter-spacing="3">ONE YEAR / MANY STORIES</text>
+  <circle cx="620" cy="1190" r="42" fill="#818cf8"/><path d="M610 1170 642 1190 610 1210Z" fill="#1e1b4b"/>
+</svg>

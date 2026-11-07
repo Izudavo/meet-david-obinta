@@ -2,6 +2,31 @@ import { Project } from "../types";
 
 export const frontendProjects: Project[] = [
   {
+    title: "Nexa Digital - Enterprise Digital Solutions Platform",
+    description:
+      "Designed and developed a modern enterprise website for Nexa Digital, positioning its services around secure digital platforms, workflow automation, business intelligence, custom software, and long-term technical partnership.",
+    category: "frontend",
+    tech: [
+      "Vite",
+      "TypeScript",
+      "TSX",
+      "Tailwind CSS",
+      "Responsive Design",
+      "Enterprise UX",
+    ],
+    highlights: [
+      "Built a polished responsive enterprise website with Vite, TypeScript, TSX, and Tailwind CSS",
+      "Structured the experience around digital solutions, security, automation, analytics, custom development, and ongoing support",
+      "Created clear engagement paths for growing businesses and enterprise organizations",
+      "Designed service sections for business websites, secure digital platforms, workflow automation, business intelligence, and enterprise software",
+      "Built trust-focused sections around performance, reliability, security, testimonials, and long-term partnership",
+      "Created responsive layouts and conversion-focused calls to action for discovery calls and project enquiries",
+    ],
+    live: "https://gonexadigital.com/",
+    image: "/projects/gonexa-hero.png",
+    accent: "#0F766E",
+  },
+  {
     title: "GHAN Platform",
     description:
       "Led the end-to-end redesign and development of the GHAN platform, transforming product requirements and Figma concepts into a scalable production-ready web application focused on performance, maintainability, and operational efficiency.",
@@ -30,6 +55,57 @@ export const frontendProjects: Project[] = [
   },
 
   {
+    title: "Sovereign Nest Estate Limited",
+    description:
+      "Designed and developed a modern real estate platform showcasing premium residential and commercial properties across Nigeria, with a focus on trust, luxury presentation, and lead generation.",
+    category: "frontend",
+    tech: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Real Estate UI",
+      "Responsive Design",
+    ],
+    highlights: [
+      "Built a premium real estate website for showcasing luxury properties across Lagos and Abuja",
+      "Developed responsive property listing experiences optimized for desktop and mobile users",
+      "Created conversion-focused inquiry and contact flows for prospective property buyers",
+      "Designed reusable components for property cards, listings, testimonials, and service sections",
+      "Implemented trust-building elements including verified listings, client testimonials, and company credentials",
+      "Structured content to highlight investment opportunities, property details, and advisory services",
+    ],
+    live: "https://sovereignnestltd.com",
+    image: "/projects/sovereign-nest.png",
+    accent: "#8A2BE2",
+  },
+
+  {
+    title: "CoinTrack",
+    description:
+      "A responsive cryptocurrency tracking web application that displays real-time prices and market data for popular cryptocurrencies using the CoinGecko API.",
+    category: "frontend",
+    tech: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "REST API",
+      "Firebase Hosting",
+      "GitHub",
+    ],
+    highlights: [
+      "Integrated CoinGecko API for real-time cryptocurrency market data",
+      "Built responsive grid-based UI optimized for multiple screen sizes",
+      "Implemented automatic 30-second data refresh system",
+      "Handled API failures gracefully with structured error states",
+      "Deployed production-ready application using Firebase Hosting",
+    ],
+    github: "https://github.com/Izudavo/CoinTrackSetup",
+    live: "https://cointrack-91a8e.web.app",
+    image: "/projects/cointrack-img.png",
+    accent: "#EAB308",
+  },
+
+ /* {
     title: "CirvaX Web Platform",
     description:
       "Designed and developed a fintech landing platform for streamlined gift card trading with WhatsApp-assisted transaction workflows, trust-focused onboarding, and conversion-driven user experience.",
@@ -51,7 +127,7 @@ export const frontendProjects: Project[] = [
     live: "https://cirvax.com",
     image: "/projects/cirva-gift-landing.png",
     accent: "#3B82F6",
-  },
+  }, */
 
   {
     title: "Shopora -  A Multi-Vendor E-Commerce Marketplace",
@@ -136,32 +212,8 @@ export const frontendProjects: Project[] = [
     accent: "#0EA5E9",
   },
 
-  {
-    title: "Sovereign Nest Estate Limited",
-    description:
-      "Designed and developed a modern real estate platform showcasing premium residential and commercial properties across Nigeria, with a focus on trust, luxury presentation, and lead generation.",
-    category: "frontend",
-    tech: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Real Estate UI",
-      "Responsive Design",
-    ],
-    highlights: [
-      "Built a premium real estate website for showcasing luxury properties across Lagos and Abuja",
-      "Developed responsive property listing experiences optimized for desktop and mobile users",
-      "Created conversion-focused inquiry and contact flows for prospective property buyers",
-      "Designed reusable components for property cards, listings, testimonials, and service sections",
-      "Implemented trust-building elements including verified listings, client testimonials, and company credentials",
-      "Structured content to highlight investment opportunities, property details, and advisory services",
-    ],
-    live: "https://sovereignnestltd.com",
-    image: "/projects/sovereign-nest.png",
-    accent: "#8A2BE2",
-  },
 
-  {
+  /*{
     title: "RapidFlow - A Lead-Generation Plumbing Website",
 
     description:
@@ -186,7 +238,7 @@ export const frontendProjects: Project[] = [
       "Designed conversion-focused layouts with strong call-to-action placement",
       "Integrated testimonials, guarantees, and trust-building elements",
       "Optimized performance, accessibility, and mobile experience",
-    ],
+    ], 
 
     live: undefined,
 
@@ -200,35 +252,10 @@ export const frontendProjects: Project[] = [
     ],
 
     accent: "#8B5CF6",
-  },
+  }, */
 
-  {
-    title: "CoinTrack",
-    description:
-      "A responsive cryptocurrency tracking web application that displays real-time prices and market data for popular cryptocurrencies using the CoinGecko API.",
-    category: "frontend",
-    tech: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "REST API",
-      "Firebase Hosting",
-      "GitHub",
-    ],
-    highlights: [
-      "Integrated CoinGecko API for real-time cryptocurrency market data",
-      "Built responsive grid-based UI optimized for multiple screen sizes",
-      "Implemented automatic 30-second data refresh system",
-      "Handled API failures gracefully with structured error states",
-      "Deployed production-ready application using Firebase Hosting",
-    ],
-    github: "https://github.com/Izudavo/CoinTrackSetup",
-    live: "https://cointrack-91a8e.web.app",
-    image: "/projects/cointrack-img.png",
-    accent: "#EAB308",
-  },
 
-  {
+  /*{
     title: "Authentic Technologies",
     description:
       "Designed and developed a modern enterprise solutions platform focused on workflow automation, operational efficiency, and interactive smart tools for digital decision-making.",
@@ -246,5 +273,5 @@ export const frontendProjects: Project[] = [
     live: "https://authentictechnologies.co",
     image: "/projects/authentic-tech.png",
     accent: "#2563EB",
-  },
+  },*/
 ];

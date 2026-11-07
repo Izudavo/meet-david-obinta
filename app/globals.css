@@ -25,6 +25,54 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes stack-flow {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.stack-track {
+  animation: stack-flow 34s linear infinite;
+}
+
+.stack-track-reverse {
+  animation-direction: reverse;
+  animation-duration: 38s;
+}
+
+@keyframes footer-skills-flow {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.footer-skills-track {
+  animation: footer-skills-flow 32s linear infinite;
+}
+
+@keyframes switcher-glow {
+  0%,
+  100% {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 0 0 rgba(56, 189, 248, 0);
+  }
+
+  50% {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), 0 0 24px rgba(249, 115, 22, 0.22);
+  }
+}
+
+.portfolio-switcher-rail {
+  animation: switcher-glow 3.2s ease-in-out infinite;
+}
+
 /* BLOG ONLY */
 .prose-blog {
   color: var(--foreground);

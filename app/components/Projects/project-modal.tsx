@@ -62,8 +62,8 @@ export function ProjectModal({ project, onClose, onImageClick }: ProjectModalPro
             </p>
 
             <div className="flex flex-wrap gap-2 pt-1">
-              {project.tech.map((t) => (
-                <span key={t} className="px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-[11px] text-zinc-700 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-900">
+              {project.tech.map((t, techIndex) => (
+                <span key={`${t}-${techIndex}`} className="px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-[11px] text-zinc-700 dark:text-zinc-300 bg-zinc-100 dark:bg-zinc-900">
                   {t}
                 </span>
               ))}

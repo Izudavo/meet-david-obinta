@@ -107,8 +107,8 @@ const ContactSection = () => {
           </h2>
 
           <p className="text-muted-foreground max-w-lg mx-auto leading-relaxed text-sm md:text-base">
-            Have a project, startup idea, freelance opportunity, or full-time
-            role?
+            Have a software project, video editing brief, freelance opportunity,
+            or full-time role?
             <br />
             Fill out the form and I'll get back to you.
           </p>
@@ -212,6 +212,10 @@ const ContactSection = () => {
                     className="w-full appearance-none rounded-2xl border border-border bg-background px-4 pr-10 py-3 text-sm outline-none focus:ring-2 focus:ring-foreground/10"
                   >
                     <option value="">Select project type</option>
+                    <option value="Video Editing Project">Video Editing Project</option>
+                    <option value="Short-form Video Editing">Short-form Video Editing</option>
+                    <option value="Brand or Promotional Video">Brand or Promotional Video</option>
+                    <option value="YouTube Video Editing">YouTube Video Editing</option>
                     <option value="Full-time Role">Full-time Role</option>
                     <option value="Freelance Project">Freelance Project</option>
                     <option value="Startup Collaboration">
@@ -241,7 +245,7 @@ const ContactSection = () => {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                placeholder="Tell me about your project..."
+                placeholder="Tell me about your software project, video brief, timeline, or goals..."
                 className={`w-full rounded-2xl border px-4 py-3 text-sm outline-none resize-none transition
                   ${
                     formData.message && formData.message.length < 10

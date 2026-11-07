@@ -2,14 +2,23 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const SplashScreen = () => {
+  const pathname = usePathname();
   const [show, setShow] = useState(true);
   const [text, setText] = useState("");
 
   const fullText = "David Obinta";
+  const isDedicatedPortfolioPage =
+    pathname === "/engineering" || pathname === "/video-editing";
 
   useEffect(() => {
+    if (isDedicatedPortfolioPage) {
+      setShow(false);
+      return;
+    }
+
     // prevent repeat on same session
     const hasSeen = sessionStorage.getItem("splash_seen");
 
@@ -34,7 +43,9 @@ const SplashScreen = () => {
     }, 80);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isDedicatedPortfolioPage]);
+
+  if (isDedicatedPortfolioPage) return null;
 
   return (
     <AnimatePresence>
